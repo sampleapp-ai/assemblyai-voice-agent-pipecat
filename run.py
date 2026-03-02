@@ -102,6 +102,19 @@ def run_example_webrtc(
         )
     ]
 
+    # Add TURN server for production (WebRTC needs relay behind proxies like Fly.io)
+    turn_url = os.getenv("TURN_URL")
+    turn_username = os.getenv("TURN_USERNAME")
+    turn_credential = os.getenv("TURN_CREDENTIAL")
+    if turn_url:
+        ice_servers.append(
+            IceServer(
+                urls=turn_url,
+                username=turn_username or "",
+                credential=turn_credential or "",
+            )
+        )
+
     # Mount the frontend at /
     app.mount("/client", SmallWebRTCPrebuiltUI)
 

@@ -1,0 +1,19 @@
+app = "aai-voice-agent-pipecat"
+primary_region = "iad"
+
+[deploy]
+  max_per_region = 1
+
+[build]
+
+[http_service]
+  internal_port = 7860
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 0
+
+[[vm]]
+  memory = "1gb"
+  cpu_kind = "shared"
+  cpus = 1
