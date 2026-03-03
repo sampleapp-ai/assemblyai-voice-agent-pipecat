@@ -2,4 +2,5 @@ pipecat-ai[assemblyai,cerebras,rime,silero,daily,webrtc]
 python-dotenv
 fastapi
 uvicorn
-pipecat-ai-small-webrtc-prebuilt
+openai
+aiortc

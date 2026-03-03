@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voice Agent</title>
+  <link rel="stylesheet" href="style.css">
+  <script crossorigin src="https://unpkg.com/@daily-co/daily-js"></script>
+</head>
+<body>
+  <div id="app">
+    <div id="pre-connect" class="pre-connect">
+      <div class="orb orb--idle"></div>
+      <div class="pre-connect__info">
+        <h1>Voice Agent</h1>
+        <p>AI customer support powered by AssemblyAI Universal-3 Pro</p>
+      </div>
+      <button id="start-btn" onclick="connect()">Start Call</button>
+    </div>
+    <div id="call" class="call hidden">
+      <div class="agent-display">
+        <div id="agent-orb" class="orb orb--large orb--idle"></div>
+        <div class="agent-display__label">AI Agent</div>
+      </div>
+      <div class="caption-bar" id="caption-bar">
+        <div class="caption-bar__text">
+          <span class="caption-bar__speaker" id="caption-speaker"></span>
+          <span id="caption-text">Waiting for speech...</span>
+        </div>
+      </div>
+      <div class="transcript-panel scrollbar-thin" id="transcript-panel"></div>
+      <div class="control-bar">
+        <button class="control-btn control-btn--default" id="mic-btn" onclick="toggleMic()" title="Toggle microphone">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+            <line x1="12" y1="19" x2="12" y2="23"/>
+            <line x1="8" y1="23" x2="16" y2="23"/>
+          </svg>
+        </button>
+        <button class="control-btn control-btn--end" id="end-btn" onclick="endCall()">
+          End Call
+        </button>
+        <span id="duration" class="duration"></span>
+      </div>
+    </div>
+  </div>
+  <audio id="remote-audio" autoplay></audio>
+  <script src="app.js"></script>
+</body>
+</html>
